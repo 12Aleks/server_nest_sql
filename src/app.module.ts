@@ -27,7 +27,9 @@ import { UsersModule } from './users/users.module';
 export class AppModule {}
 
 // mysql -u testuser -p
-
+// Show DATABASES;
+// USE db_name;
+// Select * From table_name;
 
 //CREATE DATABASE matomo_db_name_here;
 //CREATE USER 'matomo'@'localhost' IDENTIFIED WITH mysql_native_password BY 'my-strong-password-here';
