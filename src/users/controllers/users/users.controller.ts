@@ -2,6 +2,8 @@ import {Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put} from '@ne
 import {CreateUserDto} from "../../dtos/CreateUser.dto";
 import {UsersService} from "../../services/service/users.service";
 import {UpdateUserDto} from "../../dtos/UpdateUser.dto";
+import {CreateUserProfileDto} from "../../dtos/CreateUserProfile.dto";
+import {CreateUserPostDto} from "../../dtos/CreateUserPost.dto";
 
 @Controller('users')
 export class UsersController {
@@ -26,4 +28,13 @@ export class UsersController {
         await this.userServices.deleteUser(id)
     }
 
+    @Post(':id/profiles')
+    createUserProfile(@Param('id', ParseIntPipe) id: number,@Body() dto: CreateUserProfileDto){
+      return this.userServices.createUserProfile(id, dto)
+    }
+
+    @Post(':id/posts')
+    createUserPost(@Param('id', ParseIntPipe) id: number, @Body() dto: CreateUserPostDto){
+      return this.userServices.createUserPost(id, dto)
+    }
 }
